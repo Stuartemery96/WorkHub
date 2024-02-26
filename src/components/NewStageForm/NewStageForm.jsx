@@ -22,7 +22,6 @@ export default function NewStageForm({handleAddStage}) {
 
   return (
     <div>
-      <h2>Add Stage</h2>
       <form onSubmit={handleSubmit}>
         <label>Stage Name</label>
         <input

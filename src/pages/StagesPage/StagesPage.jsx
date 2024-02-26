@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import * as stagesAPI from '../../utilities/stages-api'
+import './StagesPage.css'
 import StageList from "../../components/StageList/StageList";
 import NewStageForm from "../../components/NewStageForm/NewStageForm";
 
 export default function StagesPage({ user }) {
   const [stages, setStages] = useState([]);
+  const [showNewForm, setShowNewForm] = useState(false);
 
   useEffect(function() {
     async function getStages() {
@@ -20,10 +22,15 @@ export default function StagesPage({ user }) {
   }
 
   return (
-    <main>
+    <main className="StagesPage">
       <h1>StagesPage</h1>
       <StageList stages={stages}/>
-      <NewStageForm handleAddStage={handleAddStage} />
+      <button onClick={() => setShowNewForm
+      (!showNewForm)}>
+        {showNewForm ? 'Cancel' : 'Add Stage'}
+      </button>
+      {showNewForm && 
+      <NewStageForm handleAddStage={handleAddStage} />}
     </main>
   )
 }

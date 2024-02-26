@@ -1,0 +1,16 @@
+.StageList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Each stage has a minimum width of 300px */
+  gap: 10px; /* Adjust the gap between stages */
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+/* Optionally, add a scrollbar for horizontal scrolling */
+.StageList::-webkit-scrollbar {
+  height: 8px;
+}
+
+.StageList::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}

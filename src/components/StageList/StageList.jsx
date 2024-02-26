@@ -1,3 +1,4 @@
+import './StageList.css';
 import StageListStep from '../StageListStep/StageListStep';
 
 
@@ -8,7 +9,7 @@ export default function StageList({ stages }) {
   />)
 
   return (
-    <main>
+    <main className='StageList'>
       { stages.length ?
         stageSteps
         :
