@@ -13,7 +13,7 @@ export default function AuthPage({setUser}) {
 
   return (
     <main>
-      <h1>AuthPage</h1>
+      <h1>WELCOME TO WORKHUB</h1>
       <button onClick={toggleForms}>
         {showLogin ? 'Sign Up' : 'Login'}
       </button>
