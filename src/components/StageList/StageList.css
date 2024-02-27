@@ -1,16 +1,25 @@
 .StageList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Each stage has a minimum width of 300px */
-  gap: 10px; /* Adjust the gap between stages */
-  overflow-x: auto; /* Enable horizontal scrolling */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start space-between;
+  width: 100%;
+  overflow-x: auto;
 }
 
-/* Optionally, add a scrollbar for horizontal scrolling */
-.StageList::-webkit-scrollbar {
+.StageList::-webkit-scrollbar:active {
   height: 8px;
 }
 
 .StageList::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+}
+
+.NewStageForm {
+  background-color: #f4f5f7;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 5px;
+  width: 300px;
 }

@@ -6,7 +6,7 @@ import NewStageForm from "../../components/NewStageForm/NewStageForm";
 
 export default function StagesPage({ user }) {
   const [stages, setStages] = useState([]);
-  const [showNewForm, setShowNewForm] = useState(false);
+ 
 
   useEffect(function() {
     async function getStages() {
@@ -16,21 +16,12 @@ export default function StagesPage({ user }) {
     getStages();
   }, []);
 
-  async function handleAddStage(newStage) {
-    const stage = await stagesAPI.createStage(newStage)
-    setStages([...stages, stage]);
-  }
+
 
   return (
     <main className="StagesPage">
       <h1>StagesPage</h1>
-      <StageList stages={stages}/>
-      <button onClick={() => setShowNewForm
-      (!showNewForm)}>
-        {showNewForm ? 'Cancel' : 'Add Stage'}
-      </button>
-      {showNewForm && 
-      <NewStageForm handleAddStage={handleAddStage} />}
+      <StageList stages={stages} setStages={setStages}/>
     </main>
   )
 }

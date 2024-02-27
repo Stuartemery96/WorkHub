@@ -12,6 +12,9 @@ async function getAllForUser(req,res) {
 
 async function create(req,res) {
   req.body.user = req.user._id
+  const stages = await Stage.find({clientType: req.body.clientType});
+  const sequence = stages.length + 1;
+  req.body.sequence = sequence;
   const stage = await Stage.create(req.body);
   res.json(stage);
 }

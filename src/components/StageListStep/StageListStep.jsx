@@ -1,15 +1,19 @@
 import './StageListStep.css'
 
 export default function StageListStep({ stage }) {
-  const client = stage.client
+  
 
   return (
     <div className="StageListStep">
       <div>
-        <h1>{stage.name}</h1>
+        <h2>{stage.name}</h2>
       </div>
       <div>
-        <p>client details</p>
+        {stage.clients.lentgh ?
+        <clientList />
+        :
+        <p>No Clients in Stage</p>
+        }
       </div>
     </div>
   )

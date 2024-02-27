@@ -1,3 +1,4 @@
+import './NewStageForm.css'
 import { useState } from "react"
 
 export default function NewStageForm({handleAddStage}) {

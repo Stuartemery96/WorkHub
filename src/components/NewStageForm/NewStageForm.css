@@ -1,0 +1,8 @@
+.NewStageForm {
+  background-color: #f4f5f7;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 5px;
+  min-width: 300px;
+}

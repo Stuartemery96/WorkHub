@@ -3,9 +3,13 @@
   border: 1px solid black;
   border-radius: 8px;
   padding: 10px;
+  margin: 5px;
+  min-width: 300px;
+  max-width: 300px;
+  height: 100%;
 }
 
-.StageListStep h1 {
+.StageListStep h2 {
   margin-top: 0;
   border: 1px solid black;
   border-radius: 8px;

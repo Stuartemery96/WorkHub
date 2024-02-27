@@ -1,8 +1,10 @@
 .StagesPage {
-  height: 100%;
-  display: grid;
-  grid-template-rows: 1fr;
+  height: 93vh;
+  width: 100%;
+  /* display: grid;
+  grid-template-rows: repeat(auto); */
   background-color: var(--white);
   border-radius: 2vmin;
   padding: 10px;
+  overflow-x: auto;
 }
