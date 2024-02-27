@@ -5,13 +5,21 @@ export default function ClientItems({ client }) {
     <div className="ClientItems">
       <div>
         <h2>{client.name}</h2>
+        <p><strong>{client.clientType}</strong></p>
       </div>
       <div className="left">
-        <p>Approved for: ${client.approvalAmt ? client.approvalAmt :
+        {client.clientType === 'Buyer' ?
+        <p><strong>Approved for: </strong>${client.approvalAmt ?
+          client.approvalAmt :
           'N/A'}</p>
-        <p>Commission: ${client.commission ? client.commission :
+          :
+        <p><strong>Listing Price: </strong>${client.listingPrice ?
+          client.listingPrice :
           'N/A'}</p>
-        <p>Closing Date: ${client.closingDate ? client.closeDate :
+        }   
+        <p><strong>Commission: </strong>${client.commission ? client.commission :
+          'N/A'}</p>
+        <p><strong>Closing Date: </strong>{client.closeDate ? new Date(client.closeDate).toDateString() :
           'N/A'}</p>
       </div>
     </div>

@@ -4,7 +4,6 @@ import { useState } from "react"
 export default function NewStageForm({handleAddStage}) {
   const [newStage, setNewStage] = useState({
     name: '',
-    clientType: ''
   })
 
   async function handleSubmit(evt) {
@@ -12,7 +11,6 @@ export default function NewStageForm({handleAddStage}) {
     handleAddStage(newStage);
     setNewStage({
       name: '',
-      clientType: ''
     })
   }
 
@@ -28,13 +26,6 @@ export default function NewStageForm({handleAddStage}) {
         <input
         name="name"
         value={newStage.name}
-        onChange={handleChange}
-        required
-        />
-        <label>Client Type</label>
-        <input 
-        name="clientType"
-        value={newStage.clientType}
         onChange={handleChange}
         required
         />

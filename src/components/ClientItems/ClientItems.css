@@ -9,6 +9,11 @@
 
 .ClientItems h2 {
   border: none;
+  margin-bottom: 0;
+}
+
+.ClientItems p {
+  margin-top: 0;
 }
 
 .left {

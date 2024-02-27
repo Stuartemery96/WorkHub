@@ -11,9 +11,11 @@ const clientSchema = new Schema({
   description: String,
   curStage: {type: Number, default: 1, required: true},
   approvalAmt: Number,
+  listingPrice: Number,
   salePrice: Number,
   commission: Number,
   closeDate: Date,
+  notes: String,
 }, {
   timeseries: true
 });

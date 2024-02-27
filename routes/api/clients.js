@@ -7,6 +7,6 @@ const clientsCtrl = require('../../controllers/api/clients');
 // GET /api/clients
 router.get('/', clientsCtrl.getAllForUser);
 // POST /api/clients
-// router.post('/', clientsCtrl.create);
+router.post('/', clientsCtrl.create);
 
 module.exports = router;
