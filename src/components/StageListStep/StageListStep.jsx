@@ -1,7 +1,8 @@
 import './StageListStep.css'
+import ClientList from '../ClientList/ClientList'
 
-export default function StageListStep({ stage }) {
-  
+export default function StageListStep({ stage, clients }) {
+
 
   return (
     <div className="StageListStep">
@@ -9,8 +10,8 @@ export default function StageListStep({ stage }) {
         <h2>{stage.name}</h2>
       </div>
       <div>
-        {stage.clients.lentgh ?
-        <clientList />
+        {clients.length ?
+        <ClientList clients={clients}/>
         :
         <p>No Clients in Stage</p>
         }

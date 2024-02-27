@@ -26,6 +26,7 @@ app.use('/api/users', require('./routes/api/users'))
 // Protect all routes below from anonymous users
 const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/stages', ensureLoggedIn, require('./routes/api/stages'));
+app.use('/api/clients', ensureLoggedIn, require('./routes/api/clients'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests

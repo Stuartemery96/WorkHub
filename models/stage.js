@@ -4,9 +4,7 @@ const Schema = mongoose.Schema;
 const stageSchema = new Schema({
   name: { type: String, required: true },
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  clientType: { type: String, required: true },
   sequence: { type: Number, default: 1},
-  clients: [{type: Schema.Types.ObjectId, ref: 'Client'}]
 }, {
   timestamps: true
 });

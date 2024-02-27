@@ -5,12 +5,13 @@ import StageListStep from '../StageListStep/StageListStep';
 import NewStageForm from '../NewStageForm/NewStageForm';
 
 
-export default function StageList({ stages, setStages }) {
+export default function StageList({ stages, setStages, clients }) {
   const [showNewForm, setShowNewForm] = useState(false);
 
   const stageSteps = stages.map((stage) => <StageListStep
     key={stage._id}
     stage={stage}
+    clients={clients.filter(c => c.curStage === stage.sequence)}
   />)
 
   async function handleAddStage(newStage) {

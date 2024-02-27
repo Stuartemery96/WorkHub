@@ -40,10 +40,3 @@ export function getUser() {
   const token = getToken();
   return token ? JSON.parse(atob(token.split('.')[1])).user : null
 }
-
-export function checkToken() {
-  return usersAPI.checkToken()
-    // checkToken returns a string, but let's 
-    // make it a Date object for more flexibility
-    .then(dateStr => new Date(dateStr));
-}
