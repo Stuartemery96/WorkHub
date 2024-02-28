@@ -8,19 +8,35 @@ export default function ClientItems({ client }) {
         <p><strong>{client.clientType}</strong></p>
       </div>
       <div className="left">
-        {client.clientType === 'Buyer' ?
-        <p><strong>Approved for: </strong>${client.approvalAmt ?
-          client.approvalAmt :
-          'N/A'}</p>
+        {client.clientType === 'Buyer' && client.salePrice ? (
+          <p>
+            <strong>Sale Price: </strong>
+            ${client.salePrice.toLocaleString('en-US', 
+            {maximumFractionDigits:2})}
+          </p> )
+          : (client.clientType === 'Buyer') ?
+          (<p>
+            <strong>Approved for: </strong>
+            ${client.approvalAmt ?
+            client.approvalAmt.toLocaleString('en-US', 
+            {maximumFractionDigits:2}) :
+            '0'}
+          </p>)
+            :
+          (<p><strong>Listing Price: </strong>${client.listingPrice ?
+            client.listingPrice.toLocaleString('en-US', 
+            {maximumFractionDigits:2}) :
+            '0'}</p>)
+        }
+        <p><strong>Commission: </strong>${client.commission ?
+          client.commission.toLocaleString('en-US', 
+          {maximumFractionDigits:2})
           :
-        <p><strong>Listing Price: </strong>${client.listingPrice ?
-          client.listingPrice :
-          'N/A'}</p>
-        }   
-        <p><strong>Commission: </strong>${client.commission ? client.commission :
-          'N/A'}</p>
-        <p><strong>Closing Date: </strong>{client.closeDate ? new Date(client.closeDate).toDateString() :
-          'N/A'}</p>
+          '0'}</p>
+        <p><strong>Closing Date: </strong>{client.closeDate ?
+          new Date(client.closeDate).toDateString()
+          :
+          'No Closing Date Yet'}</p>
       </div>
     </div>
   )
