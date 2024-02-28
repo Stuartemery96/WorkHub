@@ -3,8 +3,13 @@
   width: 100%;
   /* display: grid;
   grid-template-rows: repeat(auto); */
-  background-color: var(--white);
+  background-color: #353535;
   border-radius: 2vmin;
   padding: 10px;
   overflow-x: auto;
+  color: white;
+}
+
+.StagesPage h1 {
+  color: white;
 }

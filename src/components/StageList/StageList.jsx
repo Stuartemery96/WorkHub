@@ -26,7 +26,7 @@ export default function StageList({ stages, setStages, clients }) {
         :
         <p>No Stages</p>
       }
-      <div className="NewStageForm">
+      <div className="NewForm">
       <button onClick={() => setShowNewForm
       (!showNewForm)}>
         {showNewForm ? 'Cancel' : 'Add Stage'}

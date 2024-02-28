@@ -15,11 +15,19 @@
   border-radius: 4px;
 }
 
-.NewStageForm {
+.NewForm {
+  display: flex;
+  flex-direction: column;
   background-color: #f4f5f7;
   border: 1px solid black;
   border-radius: 8px;
   padding: 10px;
   margin: 5px;
-  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  height: 100%;
+}
+
+.newForm > button {
+  color: green;
 }

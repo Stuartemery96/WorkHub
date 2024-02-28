@@ -20,7 +20,7 @@ export default function NewStageForm({handleAddStage}) {
   }
 
   return (
-    <div>
+    <div className='NewStageForm'>
       <form onSubmit={handleSubmit}>
         <label>Stage Name</label>
         <input
