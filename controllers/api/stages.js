@@ -1,5 +1,5 @@
-const Stage = require('../../models/stage')
-const Client = require('../../models/client')
+const Stage = require('../../models/stage');
+const Client = require('../../models/client');
 
 module.exports = {
   getAllForUser,

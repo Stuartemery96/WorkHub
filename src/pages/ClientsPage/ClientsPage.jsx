@@ -9,7 +9,6 @@ export default function ClientsPage({user, clients, setClients}) {
     async function getClients() {
       const allClients = await clientsAPI.getAllForUser()
       setClients(allClients);
-      console.log(allClients)
     }
     getClients();
   }, []);

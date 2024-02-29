@@ -1,45 +1,68 @@
 .ClientDetailPage {
-  height: 700px;
+  height: 100%;
   width: 100%;
   background-color: #353535;
   border-radius: 20px;
-  padding: 10px;
+  padding-bottom: 50px;
   overflow-x: auto;
   color: white;
-  display: flex;
-  flex-direction: column; /* Arrange children in a column */
-  align-items: center;
+  display: grid;
+  grid-template-rows: 75px 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}
+
+.ClientDetailPage h1 {
+  grid-column: span 2;
+  justify-self: center;
+  margin: 15px 0px;
 }
 
 .ClientDetails {
-  background-color: #2A2A2A;
-  padding: 0px 15px;
+  grid-column-end: 2; /* Change this to end at the second column */
+}
+
+.ClientDetails-NoNotes {
+  grid-column: span 2;
+}
+
+.NotesList {
+  grid-column: span 2; /* Span across both columns */
+}
+
+.ClientDetails,
+.ClientDetails-NoNotes,
+.NotesList {
+  grid-row-start: 2;
+  background-color: #2a2a2a;
+  padding: 15px;
   border-radius: 10px;
 }
 
-.ClientDetailList {
+.ClientDetailList,
+.NotesList ul {
   list-style-type: none;
   padding: 0;
   width: 425px;
-  border: 2px solid #3A3A3A;
+  border: 2px solid #3a3a3a;
 }
 
-.ClientDetailList div {
+.ClientDetailList div,
+.NotesList li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.ClientDetailList div {
   padding: 10px;
 }
 
-.ClientDetailList div:nth-child(even) {
-  background-color: #3A3A3A;
-  border: 1px solid #2A2A2A;
+.ClientDetailList div:nth-child(even),
+.NotesList li:nth-child(even) {
+  background-color: #3a3a3a;
+  border: 1px solid #2a2a2a;
 }
 
-.ClientDetailList div:nth-child(odd) {
-  background-color: #2A2A2A;
-  border: 1px solid #2A2A2A;
+.ClientDetailList div:nth-child(odd),
+.NotesList li:nth-child(odd) {
+  background-color: #2a2a2a;
+  border: 1px solid #2a2a2a;
 }

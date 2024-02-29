@@ -3,10 +3,12 @@ import * as clientsAPI from '../../utilities/clients-api'
 import * as stagesAPI from '../../utilities/stages-api'
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
+import NoteItems from '../../components/NoteItems/NoteItems';
 
 export default function ClientDetailPage({ clients, stages }) {
   const [client, setClient] = useState(null);
   const [stage, setStage] = useState(null);
+  const [showNotes, setShowNotes] = useState(false);
   const [edit, setEdit] = useState(false);
   const {clientId} = useParams();
   
@@ -22,7 +24,7 @@ export default function ClientDetailPage({ clients, stages }) {
     getClient();
     getStage();
   }, [clientId, clients, stages]);
-
+  
   const phoneNumber = function formatPhoneNumber(phoneNumberString) {
     var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
     var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
@@ -32,12 +34,16 @@ export default function ClientDetailPage({ clients, stages }) {
     return null;
   }
 
+  const toggleNotes = () => {
+    setShowNotes(!showNotes);
+  };
+  
   return (
     <main className="ClientDetailPage">
       {client &&
         <>
           <h1>{client.name}</h1>
-          <div className='ClientDetails'>
+          <div className={`ClientDetails${showNotes ? '' : '-NoNotes'}`}>
             <ul className='ClientDetailList'>
               <div>
                 <label>Email: </label>
@@ -55,12 +61,10 @@ export default function ClientDetailPage({ clients, stages }) {
                 <label>Address: </label>
                 <li>{client.address}</li>
               </div>
-              {client.description && 
                 <div>
                   <label>Description: </label>
                   <li>{client.description}</li>
                 </div>
-              }
               <div>
                 <label>Stage: </label>
                 <li>{stage && stage.name}</li>
@@ -93,14 +97,22 @@ export default function ClientDetailPage({ clients, stages }) {
               </div>
               <div>
                 <label>Close Date: </label>
-                <li>{new Date(client.closeDate).toDateString()}</li>
+                <li>{client.closeDate && new Date(client.closeDate).toDateString()}</li>
               </div>
               <div>
                 <label>Notes: </label>
-                <li>{client.notes}</li>
+                <li><button onClick={toggleNotes}>{showNotes === true ? 'Hide Notes' : 'Show Notes'}</button></li>
               </div>
             </ul>
           </div>
+          {showNotes &&
+          <div className='NotesList'>
+            <h2>Notes:</h2>
+            <ul>
+              { client.notes.map((note) => <NoteItems note={note} key={note._id} />)}
+            </ul>
+          </div>
+          }
         </>
       }
     </main>

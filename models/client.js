@@ -15,7 +15,7 @@ const clientSchema = new Schema({
   salePrice: Number,
   commission: Number,
   closeDate: Date,
-  notes: String,
+  notes: [{type: Schema.Types.String, ref: 'Note'}],
 }, {
   timeseries: true
 });

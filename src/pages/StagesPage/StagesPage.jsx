@@ -8,12 +8,12 @@ export default function StagesPage({ stages, setStages, user, clients, setClient
 
   useEffect(function() {
     async function getStages() {
-      const allStages = await stagesAPI.getAllForUser()
+      const allStages = await stagesAPI.getAllForUser();
       setStages(allStages);
     }
     getStages();
     async function getClients() {
-      const allClients = await clientsAPI.getAllForUser()
+      const allClients = await clientsAPI.getAllForUser();
       setClients(allClients);
     }
     getClients();

@@ -112,7 +112,7 @@ export default function NewClientForm({handleAddClient}) {
         <label>Notes:</label>
         <input
         name="notes"
-        value={newClient.notes}
+        value={newClient.notes.text}
         />
         <button type="Submit">Add</button>
       </form>
