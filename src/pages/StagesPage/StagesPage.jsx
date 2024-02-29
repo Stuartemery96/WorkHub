@@ -4,9 +4,7 @@ import * as clientsAPI from '../../utilities/clients-api'
 import './StagesPage.css'
 import StageList from "../../components/StageList/StageList";
 
-export default function StagesPage({ user, clients, setClients }) {
-  const [stages, setStages] = useState([]);
- 
+export default function StagesPage({ stages, setStages, user, clients, setClients }) { 
 
   useEffect(function() {
     async function getStages() {

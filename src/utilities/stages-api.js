@@ -6,5 +6,14 @@ export function getAllForUser() {
 }
 
 export function createStage(stage) {
-  return sendRequest(`${BASE_URL}/stage`, 'POST', stage)
+  return sendRequest(BASE_URL, 'POST', stage)
+}
+
+export function editStage(stageName, stageId) {
+  return sendRequest(BASE_URL, 'PUT', {name: stageName, stageId})
+}
+
+
+export function getStage(clientId) {
+  return sendRequest(`${BASE_URL}/${clientId}`);
 }

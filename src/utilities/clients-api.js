@@ -6,5 +6,9 @@ export function getAllForUser() {
 }
 
 export function createClient(client) {
-  return sendRequest(BASE_URL, 'POST', client)
+  return sendRequest(BASE_URL, 'POST', client);
+}
+
+export function getClient(clientId) {
+  return sendRequest(`${BASE_URL}/${clientId}`);
 }

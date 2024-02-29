@@ -44,25 +44,26 @@ export default function NewClientForm({handleAddClient}) {
   return (
     <div>
       <form onSubmit={handleSubmit} onChange={handleChange}>
-        <label>Client Name:</label>
+        <label>*Client Name:</label>
         <input
         name="name"
         value={newClient.name}
         required
         />
-        <label>Email:</label>
+        <label>*Email:</label>
         <input
         name="email"
         value={newClient.email}
         required
         />
-        <label>Phone Number:</label>
+        <label>*Phone Number:</label>
         <input
         name="phone"
         value={newClient.phone}
+        pattern='[/^[0-9]{10}$/g]'
         required
         />
-        <label>Client Type:</label>
+        <label>*Client Type:</label>
         <input
         name="clientType"
         value={newClient.clientType}

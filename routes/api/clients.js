@@ -8,5 +8,8 @@ const clientsCtrl = require('../../controllers/api/clients');
 router.get('/', clientsCtrl.getAllForUser);
 // POST /api/clients
 router.post('/', clientsCtrl.create);
+// GET /api/clients/:clientId
+router.get('/:clientId', clientsCtrl.getClient);
+
 
 module.exports = router;

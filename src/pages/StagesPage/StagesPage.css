@@ -1,8 +1,6 @@
 .StagesPage {
-  height: 93vh;
+  height: 100%;
   width: 100%;
-  /* display: grid;
-  grid-template-rows: repeat(auto); */
   background-color: #353535;
   border-radius: 2vmin;
   padding: 10px;
@@ -10,6 +8,3 @@
   color: white;
 }
 
-.StagesPage h1 {
-  color: white;
-}

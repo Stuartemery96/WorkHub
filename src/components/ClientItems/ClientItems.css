@@ -20,3 +20,8 @@
 .left {
 text-align: left;
 }
+
+.ClientDetailLink {
+  color: white;
+  text-decoration: none;
+}

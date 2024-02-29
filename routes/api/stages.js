@@ -7,6 +7,10 @@ const stagesCtrl = require('../../controllers/api/stages');
 // GET /api/stages
 router.get('/', stagesCtrl.getAllForUser);
 // POST /api/stages/stage
-router.post('/stage', stagesCtrl.create)
+router.post('/', stagesCtrl.create);
+// PUT /api/stages
+router.put('/', stagesCtrl.edit);
+// GET /api/stage/:clientId
+router.get('/:clientId', stagesCtrl.getStage);
 
 module.exports = router;

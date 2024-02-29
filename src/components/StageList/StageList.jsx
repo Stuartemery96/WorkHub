@@ -12,6 +12,8 @@ export default function StageList({ stages, setStages, clients }) {
     key={stage._id}
     stage={stage}
     clients={clients.filter(c => c.curStage === stage.sequence)}
+    stages={stages}
+    setStages={setStages}
   />)
 
   async function handleAddStage(newStage) {
