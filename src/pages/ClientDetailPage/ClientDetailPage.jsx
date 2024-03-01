@@ -1,14 +1,15 @@
 import './ClientDetailPage.css'
 import * as clientsAPI from '../../utilities/clients-api'
-import * as stagesAPI from '../../utilities/stages-api'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useParams } from "react-router-dom";
 import NoteItems from '../../components/NoteItems/NoteItems';
 import EditClientForm from '../../components/EditClientForm/EditClientForm'
+import NewNoteForm from '../../components/NewNoteForm/NewNoteForm';
 
 export default function ClientDetailPage({ clients, setClients, stages }) {
   const [showNotes, setShowNotes] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [addNote, setAddNote] = useState(false);
   const {clientId} = useParams();
 
   const client = clients.find(c => c._id === clientId);
@@ -31,9 +32,18 @@ export default function ClientDetailPage({ clients, setClients, stages }) {
 
   async function handleUpdateClient(clientData) {
     const updatedClient = await clientsAPI.updateClient(client._id, clientData);
-    const updatedClients = clients.map(c => c._id === updatedClient._id ? updatedClient : c)
+    const updatedClients = clients.map(c => c._id === updatedClient._id ?
+      updatedClient : c);
     setClients(updatedClients);
     setEdit(false);
+  }
+  
+  async function handleAddNote(newNote) {
+    const updatedClient = await clientsAPI.addNote(clientId, newNote);
+    const updatedClients = clients.map(c => c._id === updatedClient._id ?
+      updatedClient : c);
+    setClients(updatedClients);
+    setAddNote(false);
   }
   
   return (
@@ -51,7 +61,7 @@ export default function ClientDetailPage({ clients, setClients, stages }) {
         <>
           {client &&
             <>
-              <h1>{client.name}</h1>
+              <h1>{client.name.toUpperCase()}</h1>
               <div className={`ClientDetails${showNotes ? '' : '-NoNotes'}`}>
                 <ul className='ClientDetailList'>
                   <div>
@@ -121,6 +131,10 @@ export default function ClientDetailPage({ clients, setClients, stages }) {
                 <ul>
                   {client.notes.map((note) => <NoteItems note={note} key={note._id} />)}
                 </ul>
+                {addNote &&
+                  <NewNoteForm handleAddNote={handleAddNote} />
+                }
+                <button onClick={() => setAddNote(!addNote)}>{addNote ? 'Cancel' : 'Add Note'}</button>
               </div>
               }
             </>

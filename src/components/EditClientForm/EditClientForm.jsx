@@ -31,7 +31,6 @@ export default function EditClientForm({client, setEdit, handleUpdateClient}) {
       salePrice: client.salePrice,
       commission: client.commission,
       closeDate: client.closeDate,
-
     })
   }
 

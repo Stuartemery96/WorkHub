@@ -1,0 +1,20 @@
+.NewNoteForm form {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  text-align: center;
+}
+
+.NewNoteForm textarea {
+  background-color: transparent;
+  padding: 0;
+  width: 425px;
+  border: 2px solid #3a3a3a;
+  color: white;
+}
+
+.NewNoteForm button {
+  width: 75px;
+  height: 40px;
+  justify-self: center;
+}

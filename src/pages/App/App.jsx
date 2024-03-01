@@ -15,6 +15,7 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [stages, setStages] = useState([]);
   const [clients, setClients] = useState([]);
+  const [notes, setNotes] = useState([]);
 
   useEffect(function() {
     if (user) {
@@ -60,6 +61,8 @@ export default function App() {
               clients={clients}
               setClients={setClients}
               stages={stages}
+              notes={notes}
+              setNotes={setNotes}
               />}
             />
           </Routes>

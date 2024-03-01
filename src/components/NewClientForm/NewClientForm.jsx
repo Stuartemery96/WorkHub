@@ -14,8 +14,7 @@ export default function NewClientForm({handleAddClient}) {
     salePrice: '',
     commission: '',
     closeDate: '',
-    notes: '',
-  })
+  });
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -32,8 +31,7 @@ export default function NewClientForm({handleAddClient}) {
       salePrice: '',
       commission: '',
       closeDate: '',
-      notes: '',
-    })
+    });
   }
 
   function handleChange(evt) {
@@ -108,11 +106,6 @@ export default function NewClientForm({handleAddClient}) {
         type="date"
         name="closeDate"
         value={newClient.closeDate}
-        />
-        <label>Notes:</label>
-        <input
-        name="notes"
-        value={newClient.notes.text}
         />
         <button type="Submit">Add</button>
       </form>

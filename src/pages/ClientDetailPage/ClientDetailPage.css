@@ -20,7 +20,7 @@
 }
 
 .ClientDetails {
-  grid-column-end: 2; /* Change this to end at the second column */
+  grid-column-end: 2;
 }
 
 .ClientDetails-NoNotes {
@@ -28,7 +28,7 @@
 }
 
 .NotesList {
-  grid-column: span 2; /* Span across both columns */
+  grid-column: span 2;
 }
 
 .ClientDetails,

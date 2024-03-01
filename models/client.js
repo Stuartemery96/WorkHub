@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const noteSchema = new Schema({
+  text: String
+}, {
+  timestamps: true
+});
+
 const clientSchema = new Schema({
   user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
   name: {type: String, required: true},
@@ -15,9 +21,9 @@ const clientSchema = new Schema({
   salePrice: Number,
   commission: Number,
   closeDate: Date,
-  notes: [{type: Schema.Types.String, ref: 'Note'}],
+  notes: [noteSchema],
 }, {
-  timeseries: true
+  timestamps: true
 });
 
 module.exports = mongoose.model('Client', clientSchema);

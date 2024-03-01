@@ -1,5 +1,5 @@
 export default function NoteItems({ note }) {
   return (
-    <li>{note}</li>
+    <li>{note.text}</li>
    )
 }

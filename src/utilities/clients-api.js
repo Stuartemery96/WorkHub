@@ -14,5 +14,9 @@ export function getClient(clientId) {
 }
 
 export function updateClient(clientId, clientData) {
-  return sendRequest(`${BASE_URL}/${clientId}`, 'PUT', clientData)
+  return sendRequest(`${BASE_URL}/${clientId}`, 'PUT', clientData);
+}
+
+export function addNote(clientId, newNote) {
+  return sendRequest(`${BASE_URL}/${clientId}/notes`, 'POST', newNote);
 }

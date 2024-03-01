@@ -14,7 +14,7 @@ export default function NavBar({ user, setUser }) {
       <Link to="/">Transactions</Link>
       &nbsp; | &nbsp;
       <Link to="/clients">Clients</Link>
-      &nbsp; &nbsp;<span>Welcome, {user.name}</span>
+      &nbsp; &nbsp;<span>Welcome, {user.name.split(' ')[0].toUpperCase()}</span>
       &nbsp; &nbsp;<Link className='logout' to='' onClick={handleLogOut}>Log Out</Link>
     </nav>
   );
