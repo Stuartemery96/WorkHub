@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom';
+import * as stagesAPI from '../../utilities/stages-api'
+import * as clientsAPI from '../../utilities/clients-api'
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
@@ -10,9 +12,27 @@ import ClientDetailPage from '../ClientDetailPage/ClientDetailPage';
 
 
 export default function App() {
-  const [stages, setStages] = useState([]);
   const [user, setUser] = useState(getUser());
+  const [stages, setStages] = useState([]);
   const [clients, setClients] = useState([]);
+
+  useEffect(function() {
+    if (user) {
+      async function getStages() {
+        const allStages = await stagesAPI.getAllForUser();
+        setStages(allStages);
+      }
+      getStages();
+      async function getClients() {
+        const allClients = await clientsAPI.getAllForUser();
+        setClients(allClients);
+      }
+      getClients();
+    } else {
+      setClients([]);
+      setStages([]);
+    }
+  }, [user]);
 
   return (
     <main className="App">
@@ -37,7 +57,6 @@ export default function App() {
               />}
             />
             <Route path='/clients/:clientId' element={<ClientDetailPage
-              user={user}
               clients={clients}
               setClients={setClients}
               stages={stages}

@@ -10,6 +10,8 @@ router.get('/', clientsCtrl.getAllForUser);
 router.post('/', clientsCtrl.create);
 // GET /api/clients/:clientId
 router.get('/:clientId', clientsCtrl.getClient);
+// PUT /api/clients/:clientId
+router.put('/:clientId', clientsCtrl.updateClient);
 
 
 module.exports = router;

@@ -3,7 +3,7 @@ import * as stagesAPI from '../../utilities/stages-api'
 import { useState } from 'react';
 import ClientList from '../ClientList/ClientList'
 
-export default function StageListStep({ stage, clients, stages, setStages }) {
+export default function StageListStep({ stage, clients, setClients, stages, setStages }) {
   const [stageName, setStageName] = useState(stage.name);
   const [edit, setEdit] = useState(false);
 
@@ -38,7 +38,7 @@ export default function StageListStep({ stage, clients, stages, setStages }) {
       </div>
       <div className="clientList">
         {clients.length ?
-        <ClientList clients={clients}/>
+        <ClientList clients={clients} setClients={setClients}/>
         :
         <p>No Clients in Stage</p>
         }

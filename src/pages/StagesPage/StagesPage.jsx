@@ -1,24 +1,7 @@
-import { useState, useEffect } from "react";
-import * as stagesAPI from '../../utilities/stages-api'
-import * as clientsAPI from '../../utilities/clients-api'
 import './StagesPage.css'
 import StageList from "../../components/StageList/StageList";
 
-export default function StagesPage({ stages, setStages, user, clients, setClients }) { 
-
-  useEffect(function() {
-    async function getStages() {
-      const allStages = await stagesAPI.getAllForUser();
-      setStages(allStages);
-    }
-    getStages();
-    async function getClients() {
-      const allClients = await clientsAPI.getAllForUser();
-      setClients(allClients);
-    }
-    getClients();
-  }, []);
-
+export default function StagesPage({ stages, setStages, clients, setClients }) { 
 
 
   return (

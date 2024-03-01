@@ -12,3 +12,7 @@ export function createClient(client) {
 export function getClient(clientId) {
   return sendRequest(`${BASE_URL}/${clientId}`);
 }
+
+export function updateClient(clientId, clientData) {
+  return sendRequest(`${BASE_URL}/${clientId}`, 'PUT', clientData)
+}

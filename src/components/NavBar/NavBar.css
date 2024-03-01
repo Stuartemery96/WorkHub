@@ -1,0 +1,19 @@
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  color: white;
+}
+
+nav span {
+  position: absolute;
+  font-weight: bolder;
+  right: 150px;
+}
+
+.logout {
+  position: absolute;
+  right: 75px;
+}

@@ -1,8 +1,8 @@
 import './ClientItems.css'
 import { Link } from 'react-router-dom';
-import ClientDetailPage from '../../pages/ClientDetailPage/ClientDetailPage'
 
 export default function ClientItems({ client }) {
+
 
   return (
     <Link className='ClientDetailLink' to={`/clients/${client._id}`}>
