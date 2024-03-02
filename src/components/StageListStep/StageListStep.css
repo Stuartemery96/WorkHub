@@ -35,3 +35,32 @@
 .header:hover {
   cursor: pointer;
 }
+
+.EditStageForm {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding: 0;
+}
+
+.EditStageForm * {
+  color: white;
+  font-weight: bolder;
+}
+
+.EditStageForm input{
+  background-color: transparent;
+  text-transform: uppercase;
+  border: transparent;
+  font-size: 24px;
+  width: 100%;
+  align-self: flex-start;
+}
+
+.EditStageForm select {
+  background-color: transparent;
+  margin: 5px 0px 0px 10px;
+  width: 50%;
+  font-size: medium;
+  align-self: flex-start;
+}

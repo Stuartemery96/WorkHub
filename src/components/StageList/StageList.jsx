@@ -30,11 +30,12 @@ export default function StageList({ stages, setStages, clients }) {
       }
       <div className="NewForm">
       {showNewForm && 
-      <NewStageForm handleAddStage={handleAddStage} />}      
-      <button onClick={() => setShowNewForm
-      (!showNewForm)}>
-        {showNewForm ? 'Cancel' : 'Add Stage'}
-      </button>
+      <NewStageForm handleAddStage={handleAddStage} setShowNewForm={setShowNewForm} />}      
+      {!showNewForm &&
+        <button className='AddStageBtn' onClick={() => setShowNewForm(true)}>
+          Add Stage
+        </button>
+      }
       </div>
     </main>
   )

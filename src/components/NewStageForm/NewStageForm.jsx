@@ -1,7 +1,7 @@
 import './NewStageForm.css'
 import { useState } from "react"
 
-export default function NewStageForm({handleAddStage}) {
+export default function NewStageForm({handleAddStage, setShowNewForm}) {
   const [newStage, setNewStage] = useState({
     name: '',
   })
@@ -22,13 +22,14 @@ export default function NewStageForm({handleAddStage}) {
   return (
     <div className='NewStageForm'>
       <form onSubmit={handleSubmit}>
-        <label>Stage Name</label>
-        <input
-        name="name"
-        value={newStage.name}
-        onChange={handleChange}
-        required
-        />
+        <div>
+          <input
+          name="name"
+          value={newStage.name}
+          onChange={handleChange}
+          required
+          />
+        </div>
         <select
         name="clientType"
         value={newStage.clientType}
@@ -36,8 +37,11 @@ export default function NewStageForm({handleAddStage}) {
         >
           <option value="Buyer">Buyer</option>
           <option value="Seller">Seller</option>
-        </select>        
-        <button type="Submit">Add</button>
+        </select> 
+        <div>
+          <button type="Submit">Add</button>
+          <button onClick={() => setShowNewForm(false)}>Cancel</button>
+        </div>
       </form>
     </div>
   )

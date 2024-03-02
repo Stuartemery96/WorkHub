@@ -11,10 +11,13 @@
   width: 425px;
   border: 2px solid #3a3a3a;
   color: white;
+  font-size: 15px;
+  padding: 10px 0 0 10px;
+  height: 45px;
 }
 
 .NewNoteForm button {
-  width: 75px;
-  height: 40px;
+  width: 50px;
+  height: 30;
   justify-self: center;
 }

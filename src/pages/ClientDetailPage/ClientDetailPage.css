@@ -54,6 +54,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  max-height: 45px;
 }
 
 .ClientDetailList div:nth-child(even),

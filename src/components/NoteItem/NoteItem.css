@@ -1,0 +1,17 @@
+.EditNoteForm {
+  height: 40px;
+}
+
+.EditNoteForm input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: medium;
+  height: 25px;
+  padding-left: 0px;
+  padding-bottom: 7px;
+}
+
+.UpdateBtn {
+  margin-left: auto;
+}

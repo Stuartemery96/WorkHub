@@ -104,34 +104,38 @@ label {
 }
 
 input {
-  padding: 1vmin;
-  font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
+  padding: 10px;
+  font-size: 20px;
+  height: 40px;
+  border: 1px solid var(--tan-3);
   border-radius: .5vmin;
   color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass */
+  background-image: none !important;
   outline: none;
 }
 
 input:focus {
-  border-color: var(--orange);
+  border-color: teal;
 }
 
 button, a.button {
   margin: 10px;
-  padding: 10px;
-  color: var(--white);
-  background-color: var(--orange);
-  font-size: 20px;
+  padding: 5px;
+  color: white;
+  background-color: #3A3A3A;
+  font-size: 15px;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: 1px solid var(--tan-2);
   border-radius: 5px;
   outline: none;
   cursor: pointer;
 }
 
+button:hover {
+  background-color: green;
+}
+/* 
 button.btn-sm {
   font-size: 1.5vmin;
   padding: .6vmin .8vmin;
@@ -150,4 +154,4 @@ button:disabled, form:invalid button[type="submit"] {
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
-}
+} */

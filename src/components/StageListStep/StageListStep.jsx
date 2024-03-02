@@ -27,7 +27,7 @@ export default function StageListStep({ stage, clients, setClients, stages, setS
     <div className="StageListStep">
       <div className="header">
         { edit ?
-          <div>
+          <div className='EditStageForm'>
             <input
             type='text'
             value={stageName.name}
@@ -42,9 +42,11 @@ export default function StageListStep({ stage, clients, setClients, stages, setS
             >
               <option value="Buyer">Buyer</option>
               <option value="Seller">Seller</option>
-            </select>               
-            <button onClick={() => setEdit(false)}>Cancel</button>
-            <button onClick={handleUpdate}>Update</button>
+            </select>
+            <div>
+              <button onClick={() => setEdit(false)}>Cancel</button>
+              <button onClick={handleUpdate}>Update</button>
+            </div> 
           </div>
           :
           <h2 onClick={() => setEdit(true)}>{stage.name.toUpperCase()}</h2>

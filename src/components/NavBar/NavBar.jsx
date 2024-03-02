@@ -11,11 +11,11 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <Link to="/">Transactions</Link>
+      <Link to="/">TRANSACTIONS</Link>
       &nbsp; | &nbsp;
-      <Link to="/clients">Clients</Link>
+      <Link to="/clients">CLIENTS</Link>
       &nbsp; &nbsp;<span>Welcome, {user.name.split(' ')[0].toUpperCase()}</span>
-      &nbsp; &nbsp;<Link className='logout' to='' onClick={handleLogOut}>Log Out</Link>
+      &nbsp; &nbsp;<Link className='logout' to='' onClick={handleLogOut}>LOG OUT</Link>
     </nav>
   );
 }

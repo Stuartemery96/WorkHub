@@ -1,15 +1,30 @@
-.NewStageForm input {
-  width: 100%;
-  height: 38px;
-  background-color: #353535;
-  border: transparent;
-  border-radius: 8px;
-  color: white;
-  font-size: 25px;
-  font-weight: bold;
+.NewStageForm form {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
 }
 
-.NewStageForm label {
-  font-size: large;
+.NewStageForm * {
   color: white;
+  font-weight: bolder;
+}
+
+.NewStageForm input{
+  background-color: #353535;
+  text-transform: uppercase;
+  border: transparent;
+  border-radius: 8px;
+  height: 38px;
+  padding-left: 10px;
+  font-size: 24px;
+  width: 100%;
+  align-self: flex-start;
+}
+
+.NewStageForm select {
+  background-color: transparent;
+  margin: 5px 0px 0px 10px;
+  width: 50%;
+  font-size: medium;
+  align-self: flex-start;
 }

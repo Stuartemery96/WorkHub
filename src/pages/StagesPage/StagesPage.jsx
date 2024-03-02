@@ -6,7 +6,7 @@ export default function StagesPage({ stages, setStages, clients, setClients }) {
 
   return (
     <main className="StagesPage">
-      <h1>StagesPage</h1>
+      <h1>DEALS</h1>
       <StageList stages={stages} setStages={setStages} clients={clients}/>
     </main>
   )

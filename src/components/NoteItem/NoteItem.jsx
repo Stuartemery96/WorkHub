@@ -1,3 +1,4 @@
+import './NoteItem.css'
 import { useState } from "react"
 
 export default function NoteItems({ note, handleUpdateNote }) {
@@ -12,14 +13,14 @@ export default function NoteItems({ note, handleUpdateNote }) {
   return (
     <>
     { editNote ?
-      <li>
+      <li className="EditNoteForm">
         <input
           type="text"
           name="text"
           value={noteText}
           onChange={(evt) => setNoteText(evt.target.value)}
         />
-          <button onClick={handleSubmit}>Update</button>
+        <button className='UpdateBtn' onClick={handleSubmit}>Update</button>
         <button onClick={() => setEditNote(false)}>Cancel</button>
       </li>
       :

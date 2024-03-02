@@ -59,7 +59,7 @@ export default function ClientDetailPage({ clients, setClients, stages }) {
         <>
         {client &&
           <>
-            <h1>Edit: {client.name}</h1>
+            <h1>EDIT: {client.name.toUpperCase()}</h1>
             <EditClientForm client={client} setEdit={setEdit} handleUpdateClient={handleUpdateClient} />
           </>
         }
@@ -114,6 +114,10 @@ export default function ClientDetailPage({ clients, setClients, stages }) {
                       <div>
                         <label>Listing Price: </label>
                         <li>${client.listingPrice ? client.listingPrice.toLocaleString('en-US', { maximumFractionDigits: 2 }) : 0}</li>
+                      </div>
+                      <div>
+                      <label>Sale Price: </label>
+                      <li>${client.salePrice ? client.salePrice.toLocaleString('en-US', { maximumFractionDigits: 2 }) : 0}</li>
                       </div>
                     </>
                   )}

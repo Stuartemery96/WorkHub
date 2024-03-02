@@ -1,0 +1,56 @@
+.LandingPage {
+  max-height: 900px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.LandingPage::before {    
+  content: "";
+  background-image: url(https://i.imgur.com/58bcwFm.jpeg);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.25;
+}
+
+.Header,
+.ShowForms {
+  margin-top: 50px;
+  position: relative;
+  grid-column: 1;
+  justify-self: center;
+}
+
+.Forms {
+  margin-top: 40px;
+  grid-row: span 2;
+  position: relative;
+  opacity: .75;
+  max-width: 500px;
+  justify-self: center;
+  align-self: center;
+}
+
+.FormSwapBtn {
+  margin-bottom: 20px;
+}
+
+.Header {
+  align-self: center;
+  font-size: xx-large;
+}
+
+.Slogan {
+  font-size: 45px;
+}
+
+.ShowForms {
+  position: relative;
+  height: 30px;
+  width: 70px;
+  align-self: flex-end;
+}

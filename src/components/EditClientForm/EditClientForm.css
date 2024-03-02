@@ -1,0 +1,62 @@
+.EditClientForm {
+  width: 460px;
+  border: 2px solid #3a3a3a;
+  text-align: left;
+  background-color: #2a2a2a;
+  padding: 25px 10px 15px 10px;
+  border-radius: 10px;
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+}
+
+.EditClientForm form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0 0 0;
+  width: 425px;
+  border: 2px solid #3a3a3a;
+}
+
+.EditClientForm * {
+  color: white;
+  font-size: medium;
+}
+
+.EditClientForm div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  max-height: 45px;
+}
+
+.EditClientForm div:nth-child(even) {
+  background-color: #3a3a3a;
+  border: 1px solid #2a2a2a;
+}
+
+.EditClientForm div:nth-child(odd) {
+  height: 25px;
+  background-color: #2a2a2a;
+}
+
+.EditClientForm label {
+  width: 175px;
+  margin-right: 10px;
+}
+
+.EditClientForm input {
+  background-color: transparent;
+  text-align: right;
+  border: none;
+  height: 23px;
+}
+
+.EditClientForm button {
+  margin-top: 12px;
+}
+
+.SubmitBtn {
+  margin-left: auto;
+}
