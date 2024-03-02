@@ -6,6 +6,7 @@ module.exports = {
   getClient,
   updateClient,
   addNote,
+  updateNote,
 };
 
 async function getAllForUser(req, res) {
@@ -62,5 +63,22 @@ async function addNote(req, res) {
   } catch (err) {
     console.log(err);
     res.status(400).json('Add Note Failed');
+  }
+}
+
+async function updateNote(req, res) {
+  try {
+    const client = await Client.findOne({
+      'notes._id': req.params.noteId,
+      user: req.user._id
+    });
+    const noteSubDoc = client.notes.id(req.params.noteId);
+    if (!client.user.equals(req.user._id)) return res.status(401).json('Unauthorized');
+    noteSubDoc.text = req.body.noteText;
+    await client.save()
+    res.json(client);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json('Update Note Failed');
   }
 }

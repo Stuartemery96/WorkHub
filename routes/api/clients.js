@@ -14,6 +14,8 @@ router.get('/:clientId', clientsCtrl.getClient);
 router.put('/:clientId', clientsCtrl.updateClient);
 // POST /api/clients/:clientId/notes
 router.post('/:clientId/notes', clientsCtrl.addNote);
+// PUT /api/clients/:clientId/notes/:noteId
+router.put('/:clientId/notes/:noteId', clientsCtrl.updateNote);
 
 
 module.exports = router;

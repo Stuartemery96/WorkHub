@@ -2,13 +2,13 @@ import './ClientDetailPage.css'
 import * as clientsAPI from '../../utilities/clients-api'
 import { useState } from "react"
 import { useParams } from "react-router-dom";
-import NoteItems from '../../components/NoteItems/NoteItems';
+import NoteItem from '../../components/NoteItem/NoteItem';
 import EditClientForm from '../../components/EditClientForm/EditClientForm'
 import NewNoteForm from '../../components/NewNoteForm/NewNoteForm';
 
 export default function ClientDetailPage({ clients, setClients, stages }) {
-  const [showNotes, setShowNotes] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [showNotes, setShowNotes] = useState(false);
   const [addNote, setAddNote] = useState(false);
   const {clientId} = useParams();
 
@@ -44,6 +44,13 @@ export default function ClientDetailPage({ clients, setClients, stages }) {
       updatedClient : c);
     setClients(updatedClients);
     setAddNote(false);
+  }
+
+  async function handleUpdateNote(noteId, noteText) {
+    const updatedClient = await clientsAPI.updateNote(clientId, noteId, noteText);
+    const updatedClients = clients.map(c => c._id === updatedClient._id ?
+      updatedClient : c);
+    setClients(updatedClients);
   }
   
   return (
@@ -129,7 +136,7 @@ export default function ClientDetailPage({ clients, setClients, stages }) {
               <div className='NotesList'>
                 <h2>Notes:</h2>
                 <ul>
-                  {client.notes.map((note) => <NoteItems note={note} key={note._id} />)}
+                  {client.notes.map((note) => <NoteItem note={note} key={note._id} handleUpdateNote={handleUpdateNote} />)}
                 </ul>
                 {addNote &&
                   <NewNoteForm handleAddNote={handleAddNote} />

@@ -20,3 +20,7 @@ export function updateClient(clientId, clientData) {
 export function addNote(clientId, newNote) {
   return sendRequest(`${BASE_URL}/${clientId}/notes`, 'POST', newNote);
 }
+
+export function updateNote(clientId, noteId, noteText) {
+  return sendRequest(`${BASE_URL}/${clientId}/notes/${noteId}`, 'PUT', {noteText});
+}
