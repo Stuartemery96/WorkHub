@@ -10,7 +10,7 @@ export function createStage(stage) {
 }
 
 export function editStage(stageName, stageId) {
-  return sendRequest(BASE_URL, 'PUT', {name: stageName, stageId})
+  return sendRequest(BASE_URL, 'PUT', {stageName, stageId})
 }
 
 

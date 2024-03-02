@@ -55,6 +55,7 @@ export default function App() {
                 user={user}
                 clients={clients}
                 setClients={setClients}
+                stage={false}
               />}
             />
             <Route path='/clients/:clientId' element={<ClientDetailPage

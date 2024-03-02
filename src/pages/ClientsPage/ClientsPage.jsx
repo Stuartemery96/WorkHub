@@ -3,7 +3,7 @@ import * as clientsAPI from '../../utilities/clients-api'
 import ClientList from "../../components/ClientList/ClientList";
 import NewClientForm from "../../components/NewClientForm/NewClientForm";
 
-export default function ClientsPage({user, clients, setClients}) {
+export default function ClientsPage({user, clients, setClients, stage}) {
 
   useEffect(function() {
     async function getClients() {
@@ -22,7 +22,7 @@ export default function ClientsPage({user, clients, setClients}) {
     <main>
       <h1>ClientsPage</h1>
       <NewClientForm handleAddClient={handleAddClient} />
-      <ClientList clients={clients} />
+      <ClientList clients={clients} stage={stage} />
     </main>
   )
 }

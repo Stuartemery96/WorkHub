@@ -4,7 +4,7 @@ import { useState } from 'react';
 import ClientList from '../ClientList/ClientList'
 
 export default function StageListStep({ stage, clients, setClients, stages, setStages }) {
-  const [stageName, setStageName] = useState(stage.name);
+  const [stageName, setStageName] = useState({name: stage.name, clientType: stage.clientType});
   const [edit, setEdit] = useState(false);
 
   const gsv = clients.reduce((total, client) => client.salePrice <= 0 ? total : total + client.salePrice, 0);
@@ -18,6 +18,11 @@ export default function StageListStep({ stage, clients, setClients, stages, setS
     setEdit(false);
   }
 
+  function handleChange(evt) {
+    const data = {...stageName, [evt.target.name]: evt.target.value}
+    setStageName(data);
+  }
+
   return (
     <div className="StageListStep">
       <div className="header">
@@ -25,20 +30,29 @@ export default function StageListStep({ stage, clients, setClients, stages, setS
           <div>
             <input
             type='text'
-            value={stageName}
+            value={stageName.name}
             name='name'
-            onChange={(evt) => setStageName(evt.target.value)}
+            onChange={handleChange}
             />
+            <select
+            name="clientType"
+            value={stageName.clientType}
+            onChange={handleChange}
+            required
+            >
+              <option value="Buyer">Buyer</option>
+              <option value="Seller">Seller</option>
+            </select>               
             <button onClick={() => setEdit(false)}>Cancel</button>
             <button onClick={handleUpdate}>Update</button>
           </div>
           :
-          <h2 onClick={() => setEdit(true)}>{stage.name}</h2>
+          <h2 onClick={() => setEdit(true)}>{stage.name.toUpperCase()}</h2>
         }
       </div>
       <div className="clientList">
         {clients.length ?
-        <ClientList clients={clients} setClients={setClients}/>
+        <ClientList clients={clients} setClients={setClients} stage={stage} />
         :
         <p>No Clients in Stage</p>
         }

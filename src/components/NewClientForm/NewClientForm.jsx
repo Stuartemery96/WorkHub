@@ -62,11 +62,14 @@ export default function NewClientForm({handleAddClient}) {
         required
         />
         <label>*Client Type:</label>
-        <input
+        <select
         name="clientType"
         value={newClient.clientType}
         required
-        />
+        >
+          <option value="Buyer">Buyer</option>
+          <option value="Seller">Seller</option>
+        </select>
         <label>Address:</label>
         <input
         name="address"

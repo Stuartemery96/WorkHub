@@ -18,7 +18,7 @@
 .NewForm {
   display: flex;
   flex-direction: column;
-  background-color: #f4f5f7;
+  background-color: #2A2A2A;
   border: 1px solid black;
   border-radius: 8px;
   padding: 10px;
@@ -28,6 +28,6 @@
   height: 100%;
 }
 
-.newForm > button {
+.NewForm button {
   color: green;
 }

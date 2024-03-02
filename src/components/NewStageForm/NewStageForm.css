@@ -1,9 +1,15 @@
-.NewStageForm input,
-.NewStageForm button {
+.NewStageForm input {
   width: 100%;
-  height: 45px;
+  height: 38px;
+  background-color: #353535;
+  border: transparent;
+  border-radius: 8px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .NewStageForm label {
   font-size: large;
+  color: white;
 }

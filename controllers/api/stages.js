@@ -24,8 +24,8 @@ async function create(req,res) {
 
 async function edit(req, res) {
   try {
-    const stage = await Stage.findOneAndUpdate({_id: req.body.stageId}, 
-      req.body, 
+    const stage = await Stage.findOneAndUpdate({_id: req.body.stageId},
+      req.body.stageName, 
       {new: true}
     );
     await stage.save();
