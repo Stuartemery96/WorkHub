@@ -24,3 +24,7 @@ export function addNote(clientId, newNote) {
 export function updateNote(clientId, noteId, noteText) {
   return sendRequest(`${BASE_URL}/${clientId}/notes/${noteId}`, 'PUT', {noteText});
 }
+
+export function updateClientStage(clientId, newStage) {
+  return sendRequest(`${BASE_URL}/${clientId}/stage`, 'PUT', {newStage});
+}

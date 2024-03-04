@@ -50,8 +50,7 @@ export default function App() {
               setClients={setClients}
               />}
             />
-            <Route path="/clients" element=
-              {<ClientsPage
+            <Route path="/clients" element={<ClientsPage
                 user={user}
                 clients={clients}
                 setClients={setClients}

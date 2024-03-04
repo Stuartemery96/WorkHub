@@ -12,6 +12,8 @@ router.post('/', clientsCtrl.create);
 router.get('/:clientId', clientsCtrl.getClient);
 // PUT /api/clients/:clientId
 router.put('/:clientId', clientsCtrl.updateClient);
+// PUT /api/clients/:clientId/stage
+router.put('/:clientId/stage', clientsCtrl.changeStage);
 // POST /api/clients/:clientId/notes
 router.post('/:clientId/notes', clientsCtrl.addNote);
 // PUT /api/clients/:clientId/notes/:noteId

@@ -48,6 +48,10 @@
   border: 2px solid #3a3a3a;
 }
 
+.NotesList ul {
+  margin-bottom: 0;
+}
+
 .ClientDetailList div,
 .NotesList li {
   display: flex;

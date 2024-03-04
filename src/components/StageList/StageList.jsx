@@ -5,13 +5,15 @@ import StageListStep from '../StageListStep/StageListStep';
 import NewStageForm from '../NewStageForm/NewStageForm';
 
 
-export default function StageList({ stages, setStages, clients }) {
+export default function StageList({ stages, setStages, clients, setClients }) {
   const [showNewForm, setShowNewForm] = useState(false);
 
   const stageSteps = stages.map((stage) => <StageListStep
     key={stage._id}
     stage={stage}
-    clients={clients.filter(c => c.curStage === stage.sequence)}
+    clients={clients}
+    filteredClients={clients.filter(c => c.curStage === stage.sequence && c.clientType === stage.clientType)}
+    setClients={setClients}
     stages={stages}
     setStages={setStages}
   />)

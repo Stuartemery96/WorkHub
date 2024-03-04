@@ -7,6 +7,7 @@ module.exports = {
   updateClient,
   addNote,
   updateNote,
+  changeStage,
 };
 
 async function getAllForUser(req, res) {
@@ -81,4 +82,12 @@ async function updateNote(req, res) {
     console.log(err);
     res.status(400).json('Update Note Failed');
   }
+}
+
+async function changeStage(req, res) {
+  console.log(req.params.clientId);
+  console.log(req.body.newStage);
+  const client = await Client.findByIdAndUpdate({_id: req.params.clientId}, {curStage: req.body.newStage}, {new: true});
+  await client.save();
+  res.json(client);
 }

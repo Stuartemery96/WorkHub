@@ -3,12 +3,12 @@ import * as stagesAPI from '../../utilities/stages-api'
 import { useState } from 'react';
 import ClientList from '../ClientList/ClientList'
 
-export default function StageListStep({ stage, clients, setClients, stages, setStages }) {
+export default function StageListStep({ stage, clients, filteredClients, setClients, stages, setStages }) {
   const [stageName, setStageName] = useState({name: stage.name, clientType: stage.clientType});
   const [edit, setEdit] = useState(false);
 
-  const gsv = clients.reduce((total, client) => client.salePrice <= 0 ? total : total + client.salePrice, 0);
-  const gci = clients.reduce((total, client) => client.commission <= 0 ? total : total + client.commission, 0);
+  const gsv = filteredClients.reduce((total, client) => client.salePrice <= 0 ? total : total + client.salePrice, 0);
+  const gci = filteredClients.reduce((total, client) => client.commission <= 0 ? total : total + client.commission, 0);
 
   async function handleUpdate() {
     // const s = {name: stageName, user: stage.user, sequence: stage.sequence};
@@ -34,15 +34,6 @@ export default function StageListStep({ stage, clients, setClients, stages, setS
             name='name'
             onChange={handleChange}
             />
-            <select
-            name="clientType"
-            value={stageName.clientType}
-            onChange={handleChange}
-            required
-            >
-              <option value="Buyer">Buyer</option>
-              <option value="Seller">Seller</option>
-            </select>
             <div>
               <button onClick={() => setEdit(false)}>Cancel</button>
               <button onClick={handleUpdate}>Update</button>
@@ -54,7 +45,7 @@ export default function StageListStep({ stage, clients, setClients, stages, setS
       </div>
       <div className="clientList">
         {clients.length ?
-        <ClientList clients={clients} setClients={setClients} stage={stage} />
+        <ClientList clients={clients} filteredClients={filteredClients} setClients={setClients} stage={stage} stages={stages} />
         :
         <p>No Clients in Stage</p>
         }

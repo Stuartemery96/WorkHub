@@ -1,0 +1,74 @@
+.NewClientForm {
+  width: 460px;
+  border: 2px solid #3a3a3a;
+  text-align: left;
+  background-color: #2a2a2a;
+  padding: 25px 10px 15px 10px;
+  border-radius: 10px;
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+}
+
+.NewClientForm form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0 0 0;
+  width: 425px;
+  border: 2px solid #3a3a3a;
+}
+
+.NewClientForm * {
+  color: white;
+  font-size: medium;
+}
+
+.NewClientForm div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  max-height: 45px;
+}
+
+.NewClientForm div:nth-child(even) {
+  background-color: #3a3a3a;
+  border: 1px solid #2a2a2a;
+}
+
+.NewClientForm div:nth-child(odd) {
+  height: 25px;
+  background-color: #2a2a2a;
+}
+
+.NewClientForm label {
+  width: 175px;
+  margin-right: 10px;
+}
+
+.NewClientForm input {
+  background-color: transparent;
+  text-align: right;
+  border: 1px solid lightgray;
+  height: 23px;
+  width: 188px;
+}
+
+.NewClientForm select {
+  background-color: transparent;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+.NewClientForm button {
+  margin-top: 12px;
+}
+
+.NewClientForm select {
+  width: 188px;
+  text-align: right;
+}
+
+.NewClientForm button {
+  width: fit-content;
+}
