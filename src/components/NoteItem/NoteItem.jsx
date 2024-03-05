@@ -24,9 +24,9 @@ export default function NoteItems({ note, handleUpdateNote, handleDeleteNote }) 
           value={noteText}
           onChange={(evt) => setNoteText(evt.target.value)}
         />
-        <button className='UpdateBtn' onClick={handleSubmit}>Update</button>
+        <button onClick={handleSubmit}>Update</button>
         <button onClick={() => setEditNote(false)}>Cancel</button>
-        <button  className='DeleteBtn' onClick={handleDelete}>❌</button>
+        <button  className='DeleteBtn' onClick={handleDelete}><strong>X</strong></button>
       </li>
       :
       <li onClick={() => setEditNote(true)}>{note.text}</li>

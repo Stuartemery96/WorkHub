@@ -8,10 +8,22 @@
   color: white;
   font-size: medium;
   height: 25px;
+  width: 100%;
   padding-left: 0px;
   padding-bottom: 7px;
 }
 
-.UpdateBtn {
+.EditNoteForm button {
+  margin: 0;
+  background-color: transparent;
+  border: none;
   margin-left: auto;
+}
+
+.EditNoteForm button:hover {
+  color: green;
+}
+
+.EditNoteForm .DeleteBtn:hover {
+  color: red;
 }
