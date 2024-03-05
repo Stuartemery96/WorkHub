@@ -14,6 +14,7 @@ import ClientDetailPage from '../ClientDetailPage/ClientDetailPage';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [stages, setStages] = useState([]);
+  const [selectedClientType, setSelectedClientType] = useState('Buyer');
   const [clients, setClients] = useState([]);
   const [notes, setNotes] = useState([]);
 
@@ -35,6 +36,7 @@ export default function App() {
     }
   }, [user]);
 
+
   return (
     <main className="App">
       { user ?
@@ -44,6 +46,8 @@ export default function App() {
             {/* Route Components in here */}
             <Route path="/" element={<StagesPage
               stages={stages}
+              selectedClientType={selectedClientType}
+              setSelectedClientType={setSelectedClientType}
               setStages={setStages}
               user={user}
               clients={clients}

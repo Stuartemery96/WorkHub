@@ -2,6 +2,7 @@ import './ClientItems.css'
 import { Link } from 'react-router-dom';
 
 export default function ClientItems({ client, stages, handleChangeStage }) {
+  const clientStages = stages.filter((s) => s.clientType === client.clientType);
 
   return (
     <div className="ClientItems">
@@ -50,7 +51,7 @@ export default function ClientItems({ client, stages, handleChangeStage }) {
         Prev
       </button>
       }
-      {client.curStage === stages.length ?
+      {client.curStage === clientStages.length ?
       <></>
       :
       <button onClick={() => handleChangeStage(client._id, client.curStage + 1)}>

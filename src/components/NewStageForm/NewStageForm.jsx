@@ -35,6 +35,7 @@ export default function NewStageForm({handleAddStage, setShowNewForm}) {
         <select
         name="clientType"
         value={newStage.clientType}
+        onChange={handleChange}
         required
         >
           <option value="Buyer">Buyer</option>
