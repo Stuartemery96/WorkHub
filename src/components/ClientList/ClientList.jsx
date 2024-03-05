@@ -14,7 +14,7 @@ export default function ClientList({ clients, filteredClients, setClients, stage
     const updatedClients = clients.map((c) => c._id === updatedClient._id ? updatedClient : c);
     setClients(updatedClients);
   }
-  
+
   return (
     <div className='ClientList'>{stage && stage ? filteredClientType : clientItems}</div>
   )

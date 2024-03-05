@@ -1,8 +1,11 @@
 import './ClientItems.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function ClientItems({ client, stages, handleChangeStage }) {
+  const { pathname } = useLocation();
   const clientStages = stages.filter((s) => s.clientType === client.clientType);
+  const stage = stages.find(s => s.sequence === client.curStage);
+  if (!stage) return null;
 
   return (
     <div className="ClientItems">
@@ -52,21 +55,26 @@ export default function ClientItems({ client, stages, handleChangeStage }) {
           'No Closing Date Yet'}</p>
       </div>
       </Link>
-      { client.curStage === 1 ?
-      <></>
-      :
-      <button
-        onClick={() => handleChangeStage(client._id, client.curStage - 1)}>
-        Prev
-      </button>
-      }
-      {client.curStage === clientStages.length ?
-      <></>
-      :
-      <button onClick={() => handleChangeStage(client._id, client.curStage + 1)}>
-        Next
-      </button>
-      }
+      {pathname === '/clients' ? (
+        <></>
+      ) : (
+        <>
+          {client.curStage === 1 ? (
+            <></>
+          ) : (
+            <button onClick={() => handleChangeStage(client._id, client.curStage - 1)}>
+              Prev
+            </button>
+          )}
+          {client.curStage === clientStages.length ? (
+            <></>
+          ) : (
+            <button onClick={() => handleChangeStage(client._id, client.curStage + 1)}>
+              Next
+            </button>
+          )}
+        </>
+      )}
     </div>
   )
 }

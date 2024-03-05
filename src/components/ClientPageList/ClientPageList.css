@@ -10,5 +10,7 @@
   grid-template-columns: repeat(4, 325px);
   grid-template-rows: auto;
   gap: 10px;
+  row-gap: 20px;
   justify-content: center;
+  margin-bottom: 15px;
 }
