@@ -146,7 +146,7 @@ export default function ClientDetailPage({ clients, setClients, stages }) {
               {showNotes &&
               <div className='NotesList'>
                 <h2>Notes:</h2>
-                <ul>
+                <ul className={client.notes.length ? 'Notes' : 'NoNotes'}>
                   {client.notes.map((note) => <NoteItem
                     note={note}
                     key={note._id}

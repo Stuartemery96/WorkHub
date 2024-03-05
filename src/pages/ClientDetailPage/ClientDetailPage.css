@@ -41,14 +41,22 @@
 }
 
 .ClientDetailList,
-.NotesList ul {
+.NotesList .Notes {
   list-style-type: none;
   padding: 0;
   width: 425px;
   border: 2px solid #3a3a3a;
 }
 
-.NotesList ul {
+.NoNotes {
+  border: none;
+  list-style-type: none;
+  padding: 0;
+  width: 425px;
+  margin-bottom: 0;
+}
+
+.NotesList .Notes {
   margin-bottom: 0;
 }
 

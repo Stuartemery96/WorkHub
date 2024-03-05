@@ -1,14 +1,13 @@
 .ClientsPage {
   margin-top: 20px;
   min-height: 885px;
-  width: 100%;
+  min-width: 1250px;
   background-color: #353535;
   border-radius: 2vmin;
   padding: 10px;
-  overflow-x: auto;
   color: white;
   display: grid;
-  grid-template-columns: repeat(4, 325px);
+  grid-template-columns: repeat(4, 300px);
   justify-content: center;
   grid-template-rows: auto;
   gap: 20px;
@@ -25,4 +24,5 @@
 
 .ClientList {
   grid-column: span 4;
+  
 }
