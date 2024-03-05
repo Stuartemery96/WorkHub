@@ -1,10 +1,10 @@
 import './NewStageForm.css'
 import { useState } from "react"
 
-export default function NewStageForm({handleAddStage, setShowNewForm}) {
+export default function NewStageForm({handleAddStage, setShowNewForm, selectedClientType}) {
   const [newStage, setNewStage] = useState({
     name: '',
-    clientType: 'Buyer'
+    clientType: selectedClientType
   })
 
   async function handleSubmit(evt) {
@@ -12,7 +12,7 @@ export default function NewStageForm({handleAddStage, setShowNewForm}) {
     handleAddStage(newStage);
     setNewStage({
       name: '',
-      clientType: 'Buyer'
+      clientType: selectedClientType
     })
   }
 

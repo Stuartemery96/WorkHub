@@ -18,7 +18,7 @@ export default function ClientsPage({ clients, setClients, stage, stages }) {
     const client = await clientsAPI.createClient(newClient)
     setClients([...clients, client]);
   }
-console.log(clients)
+
   return (
     <main className="ClientsPage">
       <h1>ClientsPage</h1>

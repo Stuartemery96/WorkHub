@@ -1,12 +1,11 @@
 import './StageList.css';
-import { useState } from 'react';
 import * as stagesAPI from '../../utilities/stages-api'
 import StageListStep from '../StageListStep/StageListStep';
 import NewStageForm from '../NewStageForm/NewStageForm';
 
 
-export default function StageList({ stages, setStages, clients, setClients }) {
-  const [showNewForm, setShowNewForm] = useState(false);
+export default function StageList({ stages, setStages, clients, setClients, selectedClientType, showNewForm, setShowNewForm }) {
+  
 
   const stageSteps = stages.map((stage) => <StageListStep
     key={stage._id}
@@ -32,7 +31,7 @@ export default function StageList({ stages, setStages, clients, setClients }) {
       }
       <div className="NewForm">
       {showNewForm && 
-      <NewStageForm handleAddStage={handleAddStage} setShowNewForm={setShowNewForm} />}      
+      <NewStageForm selectedClientType={selectedClientType} stages={stages} handleAddStage={handleAddStage} setShowNewForm={setShowNewForm} />}      
       {!showNewForm &&
         <button className='AddStageBtn' onClick={() => setShowNewForm(true)}>
           Add Stage

@@ -16,6 +16,7 @@ export default function EditClientForm({client, setEdit, handleUpdateClient}) {
     closeDate: client.closeDate,
   })
 
+
   async function handleSubmit(evt) {
     evt.preventDefault();
     handleUpdateClient(updatedClient);
