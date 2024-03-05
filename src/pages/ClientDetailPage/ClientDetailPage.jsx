@@ -52,6 +52,13 @@ export default function ClientDetailPage({ clients, setClients, stages }) {
       updatedClient : c);
     setClients(updatedClients);
   }
+
+  async function handleDeleteNote(noteId) {
+    const updatedClient = await clientsAPI.deleteNote(clientId, noteId);
+    const updatedClients = clients.map(c => c._id === updatedClient._id ?
+      updatedClient : c);
+    setClients(updatedClients);
+  }
   
   return (
     <main className="ClientDetailPage">
@@ -140,7 +147,13 @@ export default function ClientDetailPage({ clients, setClients, stages }) {
               <div className='NotesList'>
                 <h2>Notes:</h2>
                 <ul>
-                  {client.notes.map((note) => <NoteItem note={note} key={note._id} handleUpdateNote={handleUpdateNote} />)}
+                  {client.notes.map((note) => <NoteItem
+                    note={note}
+                    key={note._id}
+                    handleUpdateNote={handleUpdateNote}
+                    handleDeleteNote={handleDeleteNote}
+                    />)
+                  }
                 </ul>
                 {addNote &&
                   <NewNoteForm handleAddNote={handleAddNote} />

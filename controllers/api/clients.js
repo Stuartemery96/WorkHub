@@ -7,6 +7,7 @@ module.exports = {
   updateClient,
   addNote,
   updateNote,
+  deleteNote,
   changeStage,
 };
 
@@ -74,13 +75,30 @@ async function updateNote(req, res) {
       user: req.user._id
     });
     const noteSubDoc = client.notes.id(req.params.noteId);
-    if (!client.user.equals(req.user._id)) return res.status(401).json('Unauthorized');
+    if (!client) return res.status(401).json('Unauthorized');
     noteSubDoc.text = req.body.noteText;
     await client.save()
     res.json(client);
   } catch (err) {
     console.log(err);
     res.status(400).json('Update Note Failed');
+  }
+}
+
+async function deleteNote(req, res) {
+  try {
+    const client = await Client.findOne({
+      'notes._id': req.params.noteId,
+      user: req.user._id
+    });
+    const noteSubDoc = client.notes.id(req.params.noteId);
+    if (!client) return res.status(401).json('Unauthorized');
+    client.notes.remove(noteSubDoc)
+    await client.save()
+    res.json(client);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json('Delete Note Failed');
   }
 }
 

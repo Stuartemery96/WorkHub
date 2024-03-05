@@ -25,6 +25,10 @@ export function updateNote(clientId, noteId, noteText) {
   return sendRequest(`${BASE_URL}/${clientId}/notes/${noteId}`, 'PUT', {noteText});
 }
 
+export function deleteNote(clientId, noteId, noteText) {
+  return sendRequest(`${BASE_URL}/${clientId}/notes/${noteId}`, 'DELETE');
+}
+
 export function updateClientStage(clientId, newStage) {
   return sendRequest(`${BASE_URL}/${clientId}/stage`, 'PUT', {newStage});
 }

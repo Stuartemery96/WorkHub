@@ -18,6 +18,8 @@ router.put('/:clientId/stage', clientsCtrl.changeStage);
 router.post('/:clientId/notes', clientsCtrl.addNote);
 // PUT /api/clients/:clientId/notes/:noteId
 router.put('/:clientId/notes/:noteId', clientsCtrl.updateNote);
+// DELETE /api/clients/:clientId/notes/:noteId
+router.delete('/:clientId/notes/:noteId', clientsCtrl.deleteNote);
 
 
 module.exports = router;
