@@ -1,9 +1,9 @@
-import './ClientList.css'
+import './ClientPageList.css'
 import ClientItems from '../ClientItems/ClientItems';
 import * as clientsAPI from '../../utilities/clients-api'
 
 
-export default function ClientList({ clients, filteredClients, setClients, stage, stages }) {
+export default function ClientPageList({ clients, filteredClients, setClients, stage, stages }) {
   const clientItems = filteredClients.map((c) => <ClientItems 
     key={c._id} client={c} stages={stages} handleChangeStage={handleChangeStage} />);
   const filteredClientType = filteredClients.filter((c) => c.clientType === stage.clientType).map((c) => <ClientItems
@@ -16,6 +16,6 @@ export default function ClientList({ clients, filteredClients, setClients, stage
   }
   
   return (
-    <div className='ClientList'>{stage && stage ? filteredClientType : clientItems}</div>
+    <div className='ClientPageList'>{stage && stage ? filteredClientType : clientItems}</div>
   )
 }

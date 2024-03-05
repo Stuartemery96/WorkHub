@@ -45,20 +45,21 @@ export default function App() {
           <Routes>
             {/* Route Components in here */}
             <Route path="/" element={<StagesPage
+              user={user}
+              clients={clients}
+              setClients={setClients}
               stages={stages}
               selectedClientType={selectedClientType}
               setSelectedClientType={setSelectedClientType}
               setStages={setStages}
-              user={user}
-              clients={clients}
-              setClients={setClients}
               />}
             />
             <Route path="/clients" element={<ClientsPage
-                user={user}
                 clients={clients}
                 setClients={setClients}
+                selectedClientType={selectedClientType}
                 stage={false}
+                stages={stages}
               />}
             />
             <Route path='/clients/:clientId' element={<ClientDetailPage

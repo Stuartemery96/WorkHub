@@ -32,6 +32,15 @@ export default function ClientItems({ client, stages, handleChangeStage }) {
             {maximumFractionDigits:2}) :
             '0'}</p>)
         }
+        {client.clientType === 'Seller' && client.salePrice ?
+          <p>
+          <strong>Sale Price: </strong>
+          ${client.salePrice.toLocaleString('en-US', 
+          {maximumFractionDigits:2})}
+          </p>
+        :
+          <></>
+        }
         <p><strong>Commission: </strong>${client.commission ?
           client.commission.toLocaleString('en-US', 
           {maximumFractionDigits:2})

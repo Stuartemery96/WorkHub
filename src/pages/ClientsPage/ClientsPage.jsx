@@ -1,10 +1,10 @@
 import './ClientsPage.css'
 import { useEffect } from "react";
 import * as clientsAPI from '../../utilities/clients-api'
-import ClientList from "../../components/ClientList/ClientList";
+import ClientPageList from "../../components/ClientPageList/ClienPagetList";
 import NewClientForm from "../../components/NewClientForm/NewClientForm";
 
-export default function ClientsPage({user, clients, setClients, stage}) {
+export default function ClientsPage({ clients, setClients, stage, stages }) {
 
   useEffect(function() {
     async function getClients() {
@@ -18,12 +18,14 @@ export default function ClientsPage({user, clients, setClients, stage}) {
     const client = await clientsAPI.createClient(newClient)
     setClients([...clients, client]);
   }
-
+console.log(clients)
   return (
     <main className="ClientsPage">
       <h1>ClientsPage</h1>
-      <NewClientForm handleAddClient={handleAddClient} />
-      <ClientList clients={clients} stage={stage} setClients={setClients} />
+      <span><NewClientForm handleAddClient={handleAddClient} /></span>
+      <span className='Clients'>
+        <ClientPageList clients={clients} stage={stage} stages={stages} filteredClients={clients} setClients={setClients}/>
+      </span>
     </main>
   )
 }

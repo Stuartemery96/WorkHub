@@ -8,7 +8,8 @@
   overflow-x: auto;
   color: white;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 325px);
+  justify-content: center;
   grid-template-rows: auto;
   gap: 20px;
 }
@@ -17,7 +18,11 @@
   grid-column: span 4;
 }
 
-.ClientsPage div {
+.ClientsPage span {
   grid-column: span 4;
   justify-self: center;
+}
+
+.ClientList {
+  grid-column: span 4;
 }
