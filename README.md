@@ -50,4 +50,3 @@ Work-Hub is a CRM built to make life easier for the sales professional. It was d
 # ⏭️ Next Steps
 
 - Add drag and drop functionality
-- Add delete functionality to the stages
