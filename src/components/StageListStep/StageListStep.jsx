@@ -18,6 +18,16 @@ export default function StageListStep({ stage, clients, filteredClients, setClie
     setEdit(false);
   }
 
+  async function handleDelete() {
+    try{
+      await stagesAPI.deleteStage(stage._id)
+      const updatedStages = stages.filter(s => s._id !== stage._id);
+      setStages(updatedStages);
+    } catch (err) {
+      console.log(err);
+    } 
+  }
+
   function handleChange(evt) {
     const data = {...stageName, [evt.target.name]: evt.target.value}
     setStageName(data);
@@ -44,7 +54,7 @@ export default function StageListStep({ stage, clients, filteredClients, setClie
         }
       </div>
       <div className="clientList">
-        {clients.length ?
+        {filteredClients.length ?
         <ClientList clients={clients} filteredClients={filteredClients} setClients={setClients} stage={stage} stages={stages} />
         :
         <p>No Clients in Stage</p>
@@ -56,6 +66,9 @@ export default function StageListStep({ stage, clients, filteredClients, setClie
         <p>Total Commission Volume: ${gci.toLocaleString('en-US', 
         {maximumFractionDigits:2})}</p>
       </div>
+      {filteredClients.length === 0 &&
+        <button className='DeleteBtn' onClick={handleDelete}>Delete Stage</button>
+      }
     </div>
   )
 }

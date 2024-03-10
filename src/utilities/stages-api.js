@@ -17,3 +17,7 @@ export function editStage(stageName, stageId) {
 export function getStage(clientId) {
   return sendRequest(`${BASE_URL}/${clientId}`);
 }
+
+export function deleteStage(stageId) {
+  return sendRequest(`${BASE_URL}/${stageId}`, 'DELETE');
+}

@@ -64,3 +64,7 @@
   font-size: medium;
   align-self: flex-start;
 }
+
+.DeleteBtn:hover {
+  background-color: red;
+}

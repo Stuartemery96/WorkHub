@@ -6,11 +6,13 @@ const stagesCtrl = require('../../controllers/api/stages');
 
 // GET /api/stages
 router.get('/', stagesCtrl.getAllForUser);
-// POST /api/stages/stage
+// POST /api/stages/
 router.post('/', stagesCtrl.create);
 // PUT /api/stages
 router.put('/', stagesCtrl.edit);
-// GET /api/stage/:clientId
+// GET /api/stages/:clientId
 router.get('/:clientId', stagesCtrl.getStage);
+// DELETE /api/stages/:stage:id
+router.delete('/:stageId', stagesCtrl.delete);
 
 module.exports = router;
