@@ -72,3 +72,7 @@
 .DeleteBtn:hover {
   background-color: red;
 }
+
+.SeqBtn {
+  width: fit-content;
+}

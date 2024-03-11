@@ -101,12 +101,14 @@ export default function StageListStep({ stage, clients, filteredClients, setClie
         <p>Total Commission Volume: ${gci.toLocaleString('en-US', 
         {maximumFractionDigits:2})}</p>
       </div>
-      {stage.sequence < stages.length &&
-      <button onClick={() => handleChangeSeq(stage._id, stage.sequence + 1)}>Next</button>
-      }
-      {stage.sequence > 1 &&
-      <button onClick={() => handleChangeSeq(stage._id, stage.sequence - 1)}>Prev</button>
-      }
+      <div>
+        {stage.sequence > 1 &&
+        <button className="SeqBtn" onClick={() => handleChangeSeq(stage._id, stage.sequence - 1)}>Prev</button>
+        }
+        {stage.sequence < stages.length &&
+        <button className="SeqBtn" onClick={() => handleChangeSeq(stage._id, stage.sequence + 1)}>Next</button>
+        }
+      </div>
     </div>
   )
 }
