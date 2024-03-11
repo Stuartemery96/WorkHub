@@ -23,13 +23,32 @@
   overflow-y: auto;
 }
 
-.header,
-.footer {
+.header {
+  display: flex;
+  flex-direction: column;
   text-align: left;
-  padding-left: 10px;
   border: 1px solid #292B34;
   border-radius: 8px;;
   background-color: #353535;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center; /* Center-align the content horizontally */
+  border: 1px solid #292B34;
+  border-radius: 8px;
+  background-color: #353535;
+}
+
+.footer p {
+  text-align: left; /* Align paragraph content to the left */
+  padding-left: 10px;
+  margin-bottom: 0;
+}
+
+.SeqBtn {
+  margin-top:15px;
 }
 
 .header:hover {
@@ -71,8 +90,4 @@
 
 .DeleteBtn:hover {
   background-color: red;
-}
-
-.SeqBtn {
-  width: fit-content;
 }

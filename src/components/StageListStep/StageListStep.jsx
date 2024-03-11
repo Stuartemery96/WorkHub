@@ -100,14 +100,14 @@ export default function StageListStep({ stage, clients, filteredClients, setClie
         {maximumFractionDigits:2})}</p>
         <p>Total Commission Volume: ${gci.toLocaleString('en-US', 
         {maximumFractionDigits:2})}</p>
-      </div>
-      <div>
-        {stage.sequence > 1 &&
-        <button className="SeqBtn" onClick={() => handleChangeSeq(stage._id, stage.sequence - 1)}>Prev</button>
-        }
-        {stage.sequence < stages.length &&
-        <button className="SeqBtn" onClick={() => handleChangeSeq(stage._id, stage.sequence + 1)}>Next</button>
-        }
+        <span>
+          {stage.sequence > 1 &&
+          <button className="SeqBtn" onClick={() => handleChangeSeq(stage._id, stage.sequence - 1)}>Prev</button>
+          }
+          {stage.sequence < stages.length &&
+          <button className="SeqBtn" onClick={() => handleChangeSeq(stage._id, stage.sequence + 1)}>Next</button>
+          }
+        </span> 
       </div>
     </div>
   )
