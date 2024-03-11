@@ -7,6 +7,7 @@ module.exports = {
   edit,
   getStage,
   delete: deleteStage,
+  updateSeq,
 };
 
 async function getAllForUser(req, res) {
@@ -71,6 +72,50 @@ async function deleteStage(req, res) {
     }));
     await Stage.findOneAndDelete(stage);
     res.json(updateStages);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+}
+
+async function updateSeq(req, res) {
+  try {
+    const stage = await Stage.findById(req.params.stageId);
+    const newSequence = req.body.newSequence;
+    const swapStage = await Stage.findOne({user: req.user._id, sequence: newSequence, clientType: stage.clientType});
+
+    if (!stage || !swapStage) {
+      return res.status(404).json({ error: 'Stage not found' });
+    }
+    
+    // Find clients in the current stage and swap stage
+    const stageClients = await Client.find({curStage: stage.sequence, clientType: stage.clientType});
+    const swapStageClients = await Client.find({curStage: swapStage.sequence, clientType: swapStage.clientType});    
+
+    // Update the stages' sequence
+    const tempSeq = stage.sequence;
+    stage.sequence = swapStage.sequence;
+    swapStage.sequence = tempSeq;
+
+    // Update the clients' curStage
+    for (let client of stageClients) {
+      client.curStage = stage.sequence;
+      await client.save();
+    }
+
+    for (let client of swapStageClients) {
+      client.curStage = swapStage.sequence;
+      await client.save();
+    }
+
+    // Save the updated stages
+    await stage.save();
+    await swapStage.save();
+
+    // Combine updated clients from both stages
+    const updatedClients = [...stageClients, ...swapStageClients];
+    console.log(updatedClients)
+    res.json({ stage, swapStage, updatedClients });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Internal Server Error' });

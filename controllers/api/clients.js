@@ -103,8 +103,6 @@ async function deleteNote(req, res) {
 }
 
 async function changeStage(req, res) {
-  console.log(req.params.clientId);
-  console.log(req.body.newStage);
   const client = await Client.findByIdAndUpdate({_id: req.params.clientId}, {curStage: req.body.newStage}, {new: true});
   await client.save();
   res.json(client);

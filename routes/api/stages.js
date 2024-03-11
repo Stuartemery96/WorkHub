@@ -12,7 +12,9 @@ router.post('/', stagesCtrl.create);
 router.put('/', stagesCtrl.edit);
 // GET /api/stages/:clientId
 router.get('/:clientId', stagesCtrl.getStage);
-// DELETE /api/stages/:stage:id
+// DELETE /api/stages/:stageId
 router.delete('/:stageId', stagesCtrl.delete);
+// PUT /api/stages/:stageId/move/:direction
+router.put('/:stageId/sequence', stagesCtrl.updateSeq);
 
 module.exports = router;
